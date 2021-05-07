@@ -2,7 +2,7 @@
 
 ## Background
 
-As part of the Image Suggestion project, we used a [jupyter notebook] (..//Dataset_metrics.ipynb) to generate
+As part of the Image Suggestion project, we used a [jupyter notebook](../Dataset_metrics.ipynb) to generate
 our own dataset metrics. The process did give us some insights into our data but was tedious, not reusable for other
 projects, and not easily accessible to other stakeholders of the project.
 
@@ -12,11 +12,11 @@ projects, and not easily accessible to other stakeholders of the project.
 
 ## Tools
 ### Pandas Profiling
-[Pandas Profiling] (https://github.com/pandas-profiling/pandas-profiling) is an open source python package that provides
-quick exploratory data analysis. An example of running Pandas profiling can be found in the [Data_analysis] (Data_analysis.ipynb)
+[Pandas Profiling](https://github.com/pandas-profiling/pandas-profiling) is an open source python package that provides
+quick exploratory data analysis. An example of running Pandas profiling can be found in the [**Data_analysis**](Data_analysis.ipynb)
 notebook.
 
-Example of the generated dataset analysis using Pandas profiling can be found in [**cebwiki_image_sugg_pandas_analysis.html**] (cebwiki_image_sugg_pandas_analysis.html)
+Example of the generated dataset analysis using Pandas profiling can be found in [**cebwiki_image_sugg_pandas_analysis.html**](cebwiki_image_sugg_pandas_analysis.html)
 
 #### Pros
 - Easy to use
@@ -33,15 +33,15 @@ Example of the generated dataset analysis using Pandas profiling can be found in
     - Could not analyze `found_on` column
 - Significantly slows down with larger datasets
     - Struggled to analyze more than one wiki together
-    - There is an option to [disable some expensive computations] (https://github.com/pandas-profiling/pandas-profiling#large-datasets)
+    - There is an option to [disable some expensive computations](https://github.com/pandas-profiling/pandas-profiling#large-datasets)
 - Does not support comparing of two datasets
   
 ### Sweetviz
-[Sweetviz] (https://github.com/fbdesignpro/sweetviz) is an open source python package that provides high-density
-visualizations to kickstart exploratory data analysis. An example of running Sweetviz can be found in the [Data_analysis] (Data_analysis.ipynb)
+[Sweetviz](https://github.com/fbdesignpro/sweetviz) is an open source python package that provides high-density
+visualizations to kickstart exploratory data analysis. An example of running Sweetviz can be found in the [**Data_analysis**](Data_analysis.ipynb)
 notebook.
 
-Example of the generated dataset analysis using Sweetviz can be found in [**cebwiki_image_sugg_sv_analysis.html**] (cebwiki_image_sugg_sv_analysis.html)
+Example of the generated dataset analysis using Sweetviz can be found in [**cebwiki_image_sugg_sv_analysis.html**](cebwiki_image_sugg_sv_analysis.html)
 
 #### Pros
 - Easy to use
