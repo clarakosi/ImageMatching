@@ -18,6 +18,11 @@ notebook.
 
 Example of the generated dataset analysis using Pandas profiling can be found in [**cebwiki_image_sugg_pandas_analysis.html**](cebwiki_image_sugg_pandas_analysis.html)
 
+Screenshots from the analysis:
+![Pandas Profiling data analysis part 1](PP_image_1.png)
+
+![Pandas Profiling  data analysis part 2](PP_image_2.png)
+
 #### Pros
 - Easy to use
   - required a couple of lines of code to get started
@@ -41,7 +46,12 @@ Example of the generated dataset analysis using Pandas profiling can be found in
 visualizations to kickstart exploratory data analysis. An example of running Sweetviz can be found in the [**Data_analysis**](Data_analysis.ipynb)
 notebook.
 
-Example of the generated dataset analysis using Sweetviz can be found in [**cebwiki_image_sugg_sv_analysis.html**](cebwiki_image_sugg_sv_analysis.html)
+Example of the generated dataset analysis using Sweetviz can be found in [**cebwiki_image_sugg_sv_analysis.html**](cebwiki_image_sugg_sv_analysis.html).
+
+Screenshots from the analysis:
+![Sweetviz data analysis part 1](Sv_image_1.png)
+
+![Sweetviz data analysis part 2](Sv_image_2.png)
 
 #### Pros
 - Easy to use
