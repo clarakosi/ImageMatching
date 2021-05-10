@@ -86,6 +86,7 @@ Screenshots from the analysis:
   - Supports the export of code from any analysis or chart
 - A server can be made accessible to all stakeholders
 - Customizable options to analyze and show charts
+- Active community
 
 #### Cons
 - Does not support comparing two datasets (ex: reference data vs current data)
