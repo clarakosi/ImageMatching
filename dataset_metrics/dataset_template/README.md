@@ -3,20 +3,20 @@
 ## Background
 
 As part of the Image Suggestion project, we used a [jupyter notebook](../Dataset_metrics.ipynb) to generate
-our own dataset metrics. The process did give us some insights into our data but was tedious, not reusable for other
+our dataset metrics. The process did give us some insights into our data but was tedious, not reusable for other
 projects, and not easily accessible to other stakeholders of the project.
 
 ## Goals
 - [ ] Create a template or find tools to easily generate dataset metrics for our current project and other future projects
-- [ ] Output of template or tools should be accessible to all stakeholders
+- [ ] The output of template or tools should be accessible to all stakeholders
 
 ## Tools
 ### Pandas Profiling
-[Pandas Profiling](https://github.com/pandas-profiling/pandas-profiling) is an open source python package that provides
+[Pandas Profiling](https://github.com/pandas-profiling/pandas-profiling) is an open-source python package that provides
 quick exploratory data analysis. An example of running Pandas profiling can be found in the [**Data_analysis**](Data_analysis.ipynb)
 notebook.
 
-Example of the generated dataset analysis using Pandas profiling can be found in [**cebwiki_image_sugg_pandas_analysis.html**](cebwiki_image_sugg_pandas_analysis.html)
+An example of the generated dataset analysis using Pandas profiling can be found in [**cebwiki_image_sugg_pandas_analysis.html**](cebwiki_image_sugg_pandas_analysis.html)
 
 Screenshots from the analysis:
 ![Pandas Profiling data analysis part 1](PP_image_1.png)
@@ -39,14 +39,14 @@ Screenshots from the analysis:
 - Significantly slows down with larger datasets
     - Struggled to analyze more than one wiki together
     - There is an option to [disable some expensive computations](https://github.com/pandas-profiling/pandas-profiling#large-datasets)
-- Does not support comparing of two datasets
+- Does not support comparing two datasets (ex: reference data vs current data)
   
 ### Sweetviz
-[Sweetviz](https://github.com/fbdesignpro/sweetviz) is an open source python package that provides high-density
+[Sweetviz](https://github.com/fbdesignpro/sweetviz) is an open-source python package that provides high-density
 visualizations to kickstart exploratory data analysis. An example of running Sweetviz can be found in the [**Data_analysis**](Data_analysis.ipynb)
 notebook.
 
-Example of the generated dataset analysis using Sweetviz can be found in [**cebwiki_image_sugg_sv_analysis.html**](cebwiki_image_sugg_sv_analysis.html).
+An example of the generated dataset analysis using Sweetviz can be found in [**cebwiki_image_sugg_sv_analysis.html**](cebwiki_image_sugg_sv_analysis.html).
 
 Screenshots from the analysis:
 ![Sweetviz data analysis part 1](Sv_image_1.png)
@@ -56,7 +56,7 @@ Screenshots from the analysis:
 #### Pros
 - Easy to use
   - required a couple of lines of code to get started
-- Supports comparing two datasets
+- Supports comparing two datasets (ex: reference data vs current data)
 - Provided valuable insight for most columns
   - ex: showed that less than 1% of cebwiki pages does not have an `instance_of` listed
 - HTML output has a great UI that is easy to read and navigate
@@ -67,5 +67,29 @@ Screenshots from the analysis:
 
 #### Cons
 - Does not support lists
-    - Had to remove `found_on` column for it to work
+    - Had to remove the `found_on` column for it to work
 - Ran into issues when trying to analyze multiple wikis
+
+### D-Tale
+[D-Tale](https://github.com/man-group/dtale) is an open-source visualizer for panda data structures. An example of
+running D-Tale can be found in the [**Data_analysis**](Data_analysis.ipynb)
+notebook.
+
+Screenshots from the analysis:
+![D-Tale data analysis part 1](D-tale_1.png)
+![D-Tale data analysis part 2](D-tale_2.png)
+
+#### Pros
+- Easy to use
+  - required a couple of lines of code to get started
+- Code export
+  - Supports the export of code from any analysis or chart
+- A server can be made accessible to all stakeholders
+- Customizable options to analyze and show charts
+
+#### Cons
+- Does not support comparing two datasets (ex: reference data vs current data)
+- UI is more complex with more options
+- Subpar missing analysis per column
+  - Struggled to provide a percentage of rows with no image suggestions
+  
