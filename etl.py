@@ -31,8 +31,9 @@ with DAG(
     concurrency=3
 ) as dag:
 
-    image_suggestion_dir = os.environ.get("IMAGE_SUGGESTION_DIR", ".")
-    run_id = str(uuid.uuid4())
+    image_suggestion_dir = os.environ.get("IMAGE_SUGGESTION_DIR", f'/home/{getpass.getuser()}/ImageMatching')
+    # TODO: Undo hardcode, use airflow generated run id
+    run_id = '8419345a-3404-4a7c-93e1-b9e6813706ff'
     print(run_id)
     snapshot = '2021-04-26'
     monthly_snapshot = '2021-04'
@@ -55,12 +56,15 @@ with DAG(
     if not os.path.exists(outputdir):
         os.makedirs(outputdir)
 
+    if not os.path.exists(tsv_tmpdir):
+        os.makedirs(tsv_tmpdir)
+
     # Generate spark config
     spark_config = f'{image_suggestion_dir}/runs/{run_id}/regular.spark.properties'
 
     generate_spark_config = BashOperator(
         task_id='generate_spark_config',
-        bash_command=f'cat {image_suggestion_dir}/conf/spark.properties.template /usr/lib/spark2/conf/spark-defaults.conf > {spark_config}; exit 0'
+        bash_command=f'cat {image_suggestion_dir}/conf/spark.properties.template /usr/lib/spark2/conf/spark-defaults.conf > {spark_config}'
     )
 
     # TODO: Look into SparkSubmitOperator
@@ -116,7 +120,7 @@ with DAG(
                             {image_suggestion_dir}/etl/raw2parquet.py \
                             --wiki {wiki} \
                             --snapshot {monthly_snapshot} \
-                            --source {algo_outputdir}/{wiki}_{snapshot}_wd_image_candidates.tsv \
+                            --source file://{algo_outputdir}/{wiki}_{snapshot}_wd_image_candidates.tsv \
                             --destination {hdfs_imagerec}/'
         )
 
@@ -148,7 +152,7 @@ with DAG(
         # Export production datasets
         export_prod_data = BashOperator(
             task_id=f'export_{wiki}_prod_data',
-            bash_command=f'hive -hiveconf username={username} -hiveconf output_path={tsv_tmpdir}/{wiki}_{monthly_snapshot} -hiveconf wiki=${wiki} -hiveconf snapshot={monthly_snapshot} -f ddl/export_prod_data.hql > {tsv_tmpdir}/{wiki}_{monthly_snapshot}_header'
+            bash_command=f'hive -hiveconf username={username} -hiveconf output_path={tsv_tmpdir}/{wiki}_{monthly_snapshot} -hiveconf wiki={wiki} -hiveconf snapshot={monthly_snapshot} -f {image_suggestion_dir}/ddl/export_prod_data.hql > {tsv_tmpdir}/{wiki}_{monthly_snapshot}_header'
         )
 
         # Sensor for production data
